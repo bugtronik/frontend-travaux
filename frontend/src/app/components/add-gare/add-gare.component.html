@@ -1,1 +1,22 @@
-<p>add-gare works!</p>
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="gare.libelle"
+            name="title"
+          />
+        </div>
+        <button (click)="saveGare()" class="btn btn-success">Valider</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>Gare a été bien ajouté</h4>
+        <button class="btn btn-success" (click)="newGare()">Add</button>
+      </div>
+    </div>
+  </div>
