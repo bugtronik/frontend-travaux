@@ -15,8 +15,8 @@ export class AddGareComponent implements OnInit {
 
 	constructor(private gareService: GareService) { }
 
-	ngOnInit(): void { 
-	}
+	ngOnInit(): void {
+  }
 
 	saveGare(): void {
 		const data = {

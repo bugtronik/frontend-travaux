@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddGareComponent } from './components/add-gare/add-gare.component';
 import { GareDetailsComponent } from './components/gare-details/gare-details.component';
 import { GaresListComponent } from './components/gares-list/gares-list.component';
+import { AddTravauxComponent } from './components/add-travaux/add-travaux.component';
+import { TravauxDetailsComponent } from './components/travaux-details/travaux-details.component';
+import { TravauxListComponent } from './components/travaux-list/travaux-list.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { GaresListComponent } from './components/gares-list/gares-list.component
     AppComponent,
     AddGareComponent,
     GareDetailsComponent,
-    GaresListComponent
+    GaresListComponent,
+    AddTravauxComponent,
+    TravauxDetailsComponent,
+    TravauxListComponent
   ],
   imports: [
     BrowserModule,
