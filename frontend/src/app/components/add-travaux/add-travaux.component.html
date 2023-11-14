@@ -1,1 +1,155 @@
-<p>add-travaux works!</p>
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <label for="canton">Gare</label>
+        <select class="form-select" name="id_gare" [(ngModel)]="travaux.id_gare">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    
+        <div class="form-group">
+            <label for="canton">Canton</label>
+            <input
+              type="text"
+              class="form-control"
+              id="canton"
+              required
+              [(ngModel)]="travaux.canton"
+              name="canton"
+            />
+        </div>
+        <div class="form-group">
+            <label for="regime">Regime</label>
+            <input
+              type="text"
+              class="form-control"
+              id="regime"
+              required
+              [(ngModel)]="travaux.regime"
+              name="regime"
+            />
+        </div>
+        <div class="form-group">
+          <label for="title">Demande début</label>
+          <input
+            type="text"
+            class="form-control"
+            id="demande_debut"
+            required
+            [(ngModel)]="travaux.demande_debut"
+            name="demande_debut"
+            [ngxTimepicker]="picker1" [format]="24"
+          />
+          <ngx-material-timepicker #picker1></ngx-material-timepicker>
+        </div>
+  
+        <div class="form-group">
+          <label for="demande_fin">Demande fin</label>
+          <input
+            class="form-control"
+            id="demande_fin"
+            required
+            [(ngModel)]="travaux.demande_fin"
+            name="demande_fin"
+            [ngxTimepicker]="picker2" [format]="24"
+          />
+          <ngx-material-timepicker #picker2></ngx-material-timepicker>
+        </div>
+
+        <div class="form-group">
+            <label for="parcours">Parcours</label>
+            <input
+              type="text"
+              class="form-control"
+              id="parcours"
+              required
+              [(ngModel)]="travaux.parcours"
+              name="parcours"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="type"
+              required
+              [(ngModel)]="travaux.type"
+              name="type"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="heure_debut">Heure accord</label>
+            <input
+              class="form-control"
+              id="heure_debut"
+              required
+              [(ngModel)]="travaux.heure_debut"
+              name="heure_debut"
+              [ngxTimepicker]="picker4" [format]="24"
+            />
+            <ngx-material-timepicker #picker4></ngx-material-timepicker>
+          </div>
+
+          <div class="form-group">
+            <label for="heure_fin">Heure fin TX prévue</label>
+            <input
+              class="form-control"
+              id="heure_fin"
+              required
+              [(ngModel)]="travaux.heure_fin"
+              name="heure_fin"
+              [ngxTimepicker]="picker4" [format]="24"
+            />
+            <ngx-material-timepicker #picker4></ngx-material-timepicker>
+          </div>
+
+        <div class="form-group">
+            <label for="fin_reel">Fin réel</label>
+            <input
+              class="form-control"
+              id="fin_reel"
+              required
+              [(ngModel)]="travaux.fin_reel"
+              name="fin_reel"
+              [ngxTimepicker]="picker3" [format]="24"
+            />
+            <ngx-material-timepicker #picker3></ngx-material-timepicker>
+          </div>
+
+        <div class="form-group">
+            <label for="etat">Etat</label>
+            <input
+              type="text"
+              class="form-control"
+              id="etat"
+              required
+              [(ngModel)]="travaux.etat"
+              name="regime"
+            />
+        </div>
+        
+        <div class="form-group">
+            <label for="commentaire">Commentaires</label>
+            <input
+              type="text"
+              class="form-control"
+              id="commentaire"
+              required
+              [(ngModel)]="travaux.commentaire"
+              name="commentaire"
+            />
+        </div>
+  
+        <button (click)="saveTravaux()" class="btn btn-success">Valider</button>
+      </div><br>
+  
+      <div *ngIf="submitted">
+        <h4>La saisie a été bien ajouté</h4>
+        <button class="btn btn-success" (click)="newTravaux()">Ajouter</button>
+      </div>
+    </div>
+  </div>
