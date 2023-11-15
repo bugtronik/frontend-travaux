@@ -34,89 +34,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
+			<tr *ngFor="let travail of travaux">
+				<td>{{ travail.demande_debut }}</td>
+				<td>{{ travail.demande_fin }}</td>
 			</tr>
 		</tbody>
 	</table>

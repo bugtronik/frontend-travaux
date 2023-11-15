@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Gare } from 'src/app/models/gare.model';
 import { Travaux } from 'src/app/models/travaux.model';
+import { GareService } from 'src/app/services/gare.service';
 import { TravauxService } from 'src/app/services/travaux.service';
 
 @Component({
@@ -10,28 +12,31 @@ import { TravauxService } from 'src/app/services/travaux.service';
 export class AddTravauxComponent implements OnInit {
 
 	travaux: Travaux = {
-		demande_debut: new Date(),
-		demande_fin: new Date(),
+		demande_debut: '',
+		demande_fin: '',
 		fin_reel: '',
-		heure_debut: new Date(),
-		heure_fin: new Date(),
+		heure_debut: '',
+		heure_fin: '',
 		parcours: '',
 		type: '',
-		date_creation: new Date(),
+		date_creation: '',
 		canton: '',
 		regime: '',
 		etat: '',
 		commentaire: '',
-		id_gare: ''
+		gare: new Gare
 	};
+
+	gares?: any;
 
 	submitted = false;
 
-	constructor(private travauxService: TravauxService) { }
+	constructor(private travauxService: TravauxService, private gareService: GareService) { }
 
 	ngOnInit(): void {
-		
+		this.gares = this.gareService.getAll();
 	}
+	
 
 	saveTravaux(): void {
 		const data = {
@@ -47,9 +52,9 @@ export class AddTravauxComponent implements OnInit {
 			regime: this.travaux.regime,
 			etat: this.travaux.etat,
 			commentaire: this.travaux.commentaire,
-			id_gare: this.travaux.id_gare
+			gare: this.travaux.gare
 		};
-
+		console.log(data);
 		this.travauxService.create(data)
 			.subscribe({
 				next: (res) => {
@@ -63,19 +68,19 @@ export class AddTravauxComponent implements OnInit {
 	newTravaux(): void {
 		this.submitted = false;
 		this.travaux = {
-			demande_debut: new Date(),
-			demande_fin: new Date(),
+			demande_debut: '',
+			demande_fin: '',
 			fin_reel: '',
-			heure_debut: new Date(),
-			heure_fin: new Date(),
+			heure_debut: '',
+			heure_fin: '',
 			parcours: '',
 			type: '',
-			date_creation: new Date(),
+			date_creation: '',
 			canton: '',
 			regime: '',
 			etat: '',
 			commentaire: '',
-			id_gare: ''
+			gare: new Gare
 		}
 	}
 }
