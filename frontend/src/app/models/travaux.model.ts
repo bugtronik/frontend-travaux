@@ -1,16 +1,18 @@
+import { Gare } from "./gare.model";
+
 export class Travaux {
     id?: any;
-    demande_debut?: Date;
-    demande_fin?: Date;
+    demande_debut?: string;
+    demande_fin?: string;
     fin_reel?: string;
-    heure_debut?: Date;
-    heure_fin?: Date;
+    heure_debut?: string;
+    heure_fin?: string;
     parcours?: string;
     type?: string;
-    date_creation?: Date;
+    date_creation?: string;
     canton?: string;
     regime?: string;
     etat?: string;
     commentaire?: string;
-    id_gare?: any;
+    gare?: Gare;
 }

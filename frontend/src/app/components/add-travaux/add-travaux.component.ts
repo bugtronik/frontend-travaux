@@ -12,41 +12,32 @@ import { TravauxService } from 'src/app/services/travaux.service';
 export class AddTravauxComponent implements OnInit {
 	
 	travaux: Travaux = {
-		demande_debut: new Date(),
-		demande_fin: new Date(),
+		demande_debut: '',
+		demande_fin: '',
 		fin_reel: '',
-		heure_debut: new Date(),
-		heure_fin: new Date(),
+		heure_debut: '',
+		heure_fin: '',
 		parcours: '',
 		type: '',
-		date_creation: new Date(),
+		date_creation: '',
 		canton: '',
 		regime: '',
 		etat: '',
 		commentaire: '',
-		id_gare: ''
+		gare: new Gare
 	};
 
-	gares?: Gare[];
+
+	gares?: any;
 
 	submitted = false;
 	
 
+
 	constructor(private travauxService: TravauxService, private gareService: GareService) { }
 
 	ngOnInit(): void {
-		
-	}
-
-	listeGares(): void {
-		this.gareService.getAll()
-			.subscribe({
-				next: (data) => {
-					this.gares = data;
-					console.log(data);
-				},
-				error: (e) => console.error(e)
-			});
+		this.gares = this.gareService.getAll();
 	}
 
 
@@ -64,9 +55,9 @@ export class AddTravauxComponent implements OnInit {
 			regime: this.travaux.regime,
 			etat: this.travaux.etat,
 			commentaire: this.travaux.commentaire,
-			id_gare: this.travaux.id_gare
+			gare: this.travaux.gare
 		};
-
+		console.log(data);
 		this.travauxService.create(data)
 			.subscribe({
 				next: (res) => {
@@ -80,19 +71,19 @@ export class AddTravauxComponent implements OnInit {
 	newTravaux(): void {
 		this.submitted = false;
 		this.travaux = {
-			demande_debut: new Date(),
-			demande_fin: new Date(),
+			demande_debut: '',
+			demande_fin: '',
 			fin_reel: '',
-			heure_debut: new Date(),
-			heure_fin: new Date(),
+			heure_debut: '',
+			heure_fin: '',
 			parcours: '',
 			type: '',
-			date_creation: new Date(),
+			date_creation: '',
 			canton: '',
 			regime: '',
 			etat: '',
 			commentaire: '',
-			id_gare: ''
+			gare: new Gare
 		}
 	}
 }

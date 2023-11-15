@@ -8,7 +8,7 @@ import { TravauxDetailsComponent } from './components/travaux-details/travaux-de
 import { AddTravauxComponent } from './components/add-travaux/add-travaux.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'travaux', pathMatch: 'full' },
+    { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: 'gares', component: GaresListComponent },
     { path: 'gares/:id', component: GareDetailsComponent },
     { path: 'addGare', component: AddGareComponent },

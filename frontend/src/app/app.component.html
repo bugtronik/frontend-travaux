@@ -16,7 +16,7 @@
 	<div class="alert alert-primary text-center" role="alert">
 		Journée travaux du 09/10/2023
 	  </div>
-	<table datatable class="row-border container">
+	<table datatable [dtOptions]="dtOptions" class="row-border">
 		<thead>
 			<tr>
 				<th>GARE</th>
@@ -34,89 +34,19 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-			</tr>
-			<tr>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
-				<td>X</td>
+			<tr *ngFor="let travail of travaux">
+				<td>{{ travail.gare.libelle }}</td>
+				<td>{{ travail.canton }}</td>
+				<td>{{ travail.regime }}</td>
+				<td>{{ travail.demande_debut }}</td>
+				<td>{{ travail.demande_fin }}</td>
+				<td>{{ travail.parcours }}</td>
+				<td>{{ travail.type }}</td>
+				<td>{{ travail.heure_debut }}</td>
+				<td>{{ travail.heure_fin }}</td>
+				<td>{{ travail.fin_reel }}</td>
+				<td>{{ travail.etat }}</td>
+				<td>{{ travail.commentaire }}</td>
 			</tr>
 		</tbody>
 	</table>
