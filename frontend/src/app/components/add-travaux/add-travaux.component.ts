@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Gare } from 'src/app/models/gare.model';
 import { Travaux } from 'src/app/models/travaux.model';
+import { GareService } from 'src/app/services/gare.service';
 import { TravauxService } from 'src/app/services/travaux.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { TravauxService } from 'src/app/services/travaux.service';
   styleUrls: ['./add-travaux.component.css']
 })
 export class AddTravauxComponent implements OnInit {
-
+	
 	travaux: Travaux = {
 		demande_debut: new Date(),
 		demande_fin: new Date(),
@@ -25,13 +27,28 @@ export class AddTravauxComponent implements OnInit {
 		id_gare: ''
 	};
 
-	submitted = false;
+	gares?: Gare[];
 
-	constructor(private travauxService: TravauxService) { }
+	submitted = false;
+	
+
+	constructor(private travauxService: TravauxService, private gareService: GareService) { }
 
 	ngOnInit(): void {
 		
 	}
+
+	listeGares(): void {
+		this.gareService.getAll()
+			.subscribe({
+				next: (data) => {
+					this.gares = data;
+					console.log(data);
+				},
+				error: (e) => console.error(e)
+			});
+	}
+
 
 	saveTravaux(): void {
 		const data = {
