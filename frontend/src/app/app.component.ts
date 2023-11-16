@@ -27,7 +27,7 @@ export class AppComponent {
       scrollX: true,
       processing: true,
       deferRender: true,
-      destroy:true
+      destroy:false
     };
   }
   
