@@ -12,11 +12,11 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 	<div class="alert alert-primary text-center" role="alert">
 		Journée travaux du 09/10/2023
 	  </div>
-	<table datatable [dtOptions]="dtOptions" class="row-border">
+	<table *ngIf="travaux" datatable [dtOptions]="dtOptions" class="row-border">
 		<thead>
 			<tr>
 				<th>GARE</th>

@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { DatePipe } from '@angular/common';
 
 //Gestion des gares
 import { AddGareComponent } from './components/add-gare/add-gare.component';
@@ -34,9 +35,9 @@ import { TravauxListComponent } from './components/travaux-list/travaux-list.com
     AppRoutingModule,
     HttpClientModule,
     NgxMaterialTimepickerModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

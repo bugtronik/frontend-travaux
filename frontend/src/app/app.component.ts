@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Travaux } from './models/travaux.model';
 import { TravauxService } from './services/travaux.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,13 @@ export class AppComponent {
 
   dtOptions: DataTables.Settings = {};
 
-  constructor(private travauxService: TravauxService) { }
+
+  constructor(private travauxService: TravauxService, private datepipe: DatePipe) { }
 
   ngOnInit(): void {
 	  this.travaux = this.retrieveTravaux();
+
+	  console.log(this.datepipe.transform((new Date), 'yyyy/MM/dd HH:mm'));
     
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -31,7 +35,6 @@ export class AppComponent {
     };
   }
   
-
   retrieveTravaux(): void {
 	this.travauxService.getAll()
 		.subscribe({

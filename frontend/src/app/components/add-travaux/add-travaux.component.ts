@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Gare } from 'src/app/models/gare.model';
 import { Travaux } from 'src/app/models/travaux.model';
@@ -37,7 +38,7 @@ export class AddTravauxComponent implements OnInit {
 	
 
 
-	constructor(private travauxService: TravauxService, private gareService: GareService) { }
+	constructor(private travauxService: TravauxService, private gareService: GareService, private datepipe: DatePipe) { }
 
 	ngOnInit(): void {
 		this.gares = this.gareService.getAll();
@@ -46,14 +47,14 @@ export class AddTravauxComponent implements OnInit {
 
 	saveTravaux(): void {
 		const data = {
-			demande_debut: this.travaux.demande_debut,
-			demande_fin: this.travaux.demande_fin,
-			fin_reel: this.travaux.fin_reel,
-			heure_debut: this.travaux.heure_debut,
-			heure_fin: this.travaux.heure_fin,
+			demande_debut: this.travaux.demande_debut?.replace('T', ' '),
+			demande_fin: this.travaux.demande_fin?.replace('T', ' '),
+			fin_reel: this.travaux.fin_reel?.replace('T', ' '),
+			heure_debut: this.travaux.heure_debut?.replace('T', ' '),
+			heure_fin: this.travaux.heure_fin?.replace('T', ' '),
 			parcours: this.travaux.parcours,
 			type: this.travaux.type,
-			date_creation: this.travaux.date_creation,
+			date_creation: this.datepipe.transform((new Date), 'yyyy/MM/dd HH:mm'),
 			canton: this.travaux.canton,
 			regime: this.travaux.regime,
 			etat: this.travaux.etat,

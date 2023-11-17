@@ -35,4 +35,20 @@ export class TravauxListComponent implements OnInit {
 	this.currentTravaux = {};
 	this.currentIndex = -1;
   }
+
+  setActiveTravaux(travaux: Travaux, index: number): void {
+		this.currentTravaux = travaux;
+    	this.currentIndex = index;
+  }
+
+  removeAllTravaux(): void {
+	this.travauxService.deleteAll()
+		.subscribe({
+			next: (res) => {
+				console.log(res);
+				this.refreshList();
+			},
+			error: (e) => console.error(e)
+		});
+  }
 }
