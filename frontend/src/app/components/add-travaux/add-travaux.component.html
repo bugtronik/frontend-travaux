@@ -4,13 +4,13 @@
     </div>
     <div class="submit-form">
       <div *ngIf="!submitted">
-        <label for="canton">Gare</label>
+        <label for="canton"><strong>Gare</strong></label>
         <select class="form-select" name="id_gare" [(ngModel)]="travaux.gare">
             <option *ngFor="let gare of gares | async" [ngValue]="gare">{{ gare.libelle }}</option>
         </select>
     
         <div class="form-group">
-            <label for="canton">Canton</label>
+            <label for="canton"><strong>Canton</strong></label>
             <input
               type="text"
               class="form-control"
@@ -21,7 +21,7 @@
             />
         </div>
         <div class="form-group">
-            <label for="regime">Regime</label>
+            <label for="regime"><strong>Regime</strong></label>
             <input
               type="text"
               class="form-control"
@@ -32,34 +32,31 @@
             />
         </div>
         <div class="form-group">
-          <label for="title">Demande début</label>
+          <label for="title"><strong>Demande début</strong></label>
           <input
-            type="text"
+            type="datetime-local"
             class="form-control"
             id="demande_debut"
             required
             [(ngModel)]="travaux.demande_debut"
             name="demande_debut"
-            [ngxTimepicker]="picker1" [format]="24"
           />
-          <ngx-material-timepicker #picker1></ngx-material-timepicker>
         </div>
   
         <div class="form-group">
-          <label for="demande_fin">Demande fin</label>
+          <label for="demande_fin"><strong>Demande fin</strong></label>
           <input
+            type="datetime-local"
             class="form-control"
             id="demande_fin"
             required
             [(ngModel)]="travaux.demande_fin"
             name="demande_fin"
-            [ngxTimepicker]="picker2" [format]="24"
           />
-          <ngx-material-timepicker #picker2></ngx-material-timepicker>
         </div>
 
         <div class="form-group">
-            <label for="parcours">Parcours</label>
+            <label for="parcours"><strong>Parcours</strong></label>
             <input
               type="text"
               class="form-control"
@@ -71,7 +68,7 @@
         </div>
 
         <div class="form-group">
-            <label for="type">Type</label>
+            <label for="type"><strong>Type</strong></label>
             <input
               type="text"
               class="form-control"
@@ -83,46 +80,43 @@
         </div>
 
         <div class="form-group">
-            <label for="heure_debut">Heure accord</label>
+            <label for="heure_debut"><strong>Heure accord</strong></label>
             <input
+              type="datetime-local"
               class="form-control"
               id="heure_debut"
               required
               [(ngModel)]="travaux.heure_debut"
               name="heure_debut"
-              [ngxTimepicker]="picker4" [format]="24"
             />
-            <ngx-material-timepicker #picker4></ngx-material-timepicker>
           </div>
 
           <div class="form-group">
-            <label for="heure_fin">Heure fin TX prévue</label>
+            <label for="heure_fin"><strong>Heure fin TX prévue</strong></label>
             <input
+              type="datetime-local"
               class="form-control"
               id="heure_fin"
               required
               [(ngModel)]="travaux.heure_fin"
               name="heure_fin"
-              [ngxTimepicker]="picker5" [format]="24"
             />
-            <ngx-material-timepicker #picker5></ngx-material-timepicker>
           </div>
 
         <div class="form-group">
-            <label for="fin_reel">Fin réel</label>
+            <label for="fin_reel"><strong>Fin réel</strong></label>
             <input
+              type="datetime-local"
               class="form-control"
               id="fin_reel"
               required
               [(ngModel)]="travaux.fin_reel"
               name="fin_reel"
-              [ngxTimepicker]="picker3" [format]="24"
             />
-            <ngx-material-timepicker #picker3></ngx-material-timepicker>
           </div>
 
         <div class="form-group">
-            <label for="etat">Etat</label>
+            <label for="etat"><strong>Etat</strong></label>
             <input
               type="text"
               class="form-control"
@@ -134,7 +128,7 @@
         </div>
         
         <div class="form-group">
-            <label for="commentaire">Commentaires</label>
+            <label for="commentaire"><strong>Commentaires</strong></label>
             <input
               type="text"
               class="form-control"

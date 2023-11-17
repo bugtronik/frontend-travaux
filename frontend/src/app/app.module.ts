@@ -34,7 +34,7 @@ import { TravauxListComponent } from './components/travaux-list/travaux-list.com
     AppRoutingModule,
     HttpClientModule,
     NgxMaterialTimepickerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

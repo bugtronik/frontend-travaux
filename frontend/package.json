@@ -28,6 +28,7 @@
     "datatables.net-dt": "^1.11.3",
     "jquery": "^3.6.0",
     "luxon": "^3.4.4",
+    "ng-pick-datetime": "^7.0.0",
     "ngx-material-timepicker": "^13.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

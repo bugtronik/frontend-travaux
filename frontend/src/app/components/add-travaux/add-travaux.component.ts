@@ -4,6 +4,9 @@ import { Travaux } from 'src/app/models/travaux.model';
 import { GareService } from 'src/app/services/gare.service';
 import { TravauxService } from 'src/app/services/travaux.service';
 
+/**
+ * @title Basic DateTime Picker
+ */
 @Component({
   selector: 'app-add-travaux',
   templateUrl: './add-travaux.component.html',
