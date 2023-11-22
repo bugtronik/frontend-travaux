@@ -11,6 +11,9 @@
 	<div class="alert alert-primary text-center" role="alert">
 		Liste travaux
 	  </div>
+	  <div *ngIf="message" class="alert alert-success" role="alert">
+			<strong>{{ message }}</strong>
+	  </div>
 	<table *ngIf="travaux" datatable [dtOptions]="dtOptions" class="row-border">
 		<thead>
 			<tr>
@@ -58,8 +61,8 @@
 						<div class="submit-form">
 							<div>
 								<label for="canton"><strong>Gare</strong></label>
-								<select class="form-select" name="id_gare" [(ngModel)]="travaux.gare">
-									<option *ngFor="let gare of gares | async" [ngValue]="gare">{{ gare.libelle }}</option>
+								<select class="form-select" name="id_gare" [(ngModel)]="travail.gare">
+									<option *ngFor="let gare of gares | async">{{ gare.libelle }}</option>
 								</select>
 								<div class="form-group">
 									<label for="canton"><strong>Canton</strong></label>
@@ -201,6 +204,7 @@
 									  value="{{ currentTravail.commentaire }}"
 									/>
 								</div>
+								<input type="hidden" name="id" value="{{ travail.id }}" />
 							</div>
 						</div>
 					</div> 

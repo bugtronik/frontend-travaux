@@ -5,6 +5,7 @@ import { DatePipe } from '@angular/common';
 import { GareService } from './services/gare.service';
 import { Gare } from './models/gare.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -115,11 +116,29 @@ export class AppComponent {
   updateTravaux(): void {
 	this.message = '';
 
-	this.travauxService.update(this.currentTravail.id, this.currentTravail)
+	const data_update = {
+		id: this.currentTravail.id,
+		demande_debut: this.currentTravail.demande_debut?.replace('T', ' '),
+		demande_fin: this.currentTravail.demande_fin?.replace('T', ' '),
+		fin_reel: this.currentTravail.fin_reel?.replace('T', ' '),
+		heure_debut: this.currentTravail.heure_debut?.replace('T', ' '),
+		heure_fin: this.currentTravail.heure_fin?.replace('T', ' '),
+		parcours: this.currentTravail.parcours,
+		type: this.currentTravail.type,
+		date_creation: this.datepipe.transform((new Date), 'yyyy/MM/dd HH:mm'),
+		canton: this.currentTravail.canton,
+		regime: this.currentTravail.regime,
+		etat: this.currentTravail.etat,
+		commentaire: this.currentTravail.commentaire,
+		gare: this.currentTravail.gare
+	}
+
+	this.travauxService.update(this.currentTravail.id, data_update)
 		.subscribe({
 			next: (res) => {
 				console.log(res);
 				this.message = res.message ? res.message : 'Données mise à jour';
+				this.displayStyle = "none";
 			},
 			error: (e) => console.error(e)
 		});
