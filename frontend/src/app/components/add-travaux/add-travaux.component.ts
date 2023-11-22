@@ -36,8 +36,6 @@ export class AddTravauxComponent implements OnInit {
 
 	submitted = false;
 	
-
-
 	constructor(private travauxService: TravauxService, private gareService: GareService, private datepipe: DatePipe) { }
 
 	ngOnInit(): void {

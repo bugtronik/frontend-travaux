@@ -21,6 +21,8 @@
     "@angular/router": "^16.2.0",
     "@coreui/angular": "^4.5.27",
     "@coreui/coreui": "^4.3.2",
+    "@developer-partners/ngx-modal-dialog": "^1.0.5",
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0-rc.2",
     "angular-datatables": "^16.0.0",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",

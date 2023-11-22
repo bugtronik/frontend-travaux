@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Travaux } from 'src/app/models/travaux.model';
+import { GareService } from 'src/app/services/gare.service';
 import { TravauxService } from 'src/app/services/travaux.service';
 
 @Component({
@@ -13,10 +14,19 @@ export class TravauxListComponent implements OnInit {
   currentTravaux: Travaux = {};
   currentIndex = -1
 
-  constructor(private travauxService: TravauxService) { }
+  gares?: any;
+  submitted = false;
+  message = '';
+
+  dtOptions: DataTables.Settings = {};
+
+  displayStyle = "none";
+
+  constructor(private travauxService: TravauxService, private gareService: GareService) { }
 
   ngOnInit(): void {
 	this.retrieveTravaux();
+	this.gares = this.gareService.getAll();
   }
 
   retrieveTravaux(): void {
