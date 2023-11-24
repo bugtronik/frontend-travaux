@@ -6,6 +6,7 @@ import { GareService } from './services/gare.service';
 import { Gare } from './models/gare.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { data } from 'jquery';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ import { data } from 'jquery';
 })
 export class AppComponent {
   title = 'Travaux';
+
+  private notifier: NotifierService;
 
   @Input() viewMode = false;
 
@@ -50,7 +53,10 @@ export class AppComponent {
 				private datepipe: DatePipe, 
 				private gareService: GareService, 
 				private route: ActivatedRoute,
-				private router: Router) { }
+				private router: Router,
+				notifier: NotifierService) {  
+					this.notifier = notifier;
+				}
 
   ngOnInit(): void {
 	  this.travaux = this.retrieveTravaux();
@@ -86,6 +92,7 @@ export class AppComponent {
 			next: (data) => {
 				this.travaux = data;
 				console.log(data);
+
 			},
 			error: (e) => console.error(e)
 		});

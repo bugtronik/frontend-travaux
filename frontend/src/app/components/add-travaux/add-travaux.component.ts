@@ -4,6 +4,7 @@ import { Gare } from 'src/app/models/gare.model';
 import { Travaux } from 'src/app/models/travaux.model';
 import { GareService } from 'src/app/services/gare.service';
 import { TravauxService } from 'src/app/services/travaux.service';
+import { NotifierService } from 'angular-notifier';
 
 /**
  * @title Basic DateTime Picker
@@ -14,6 +15,8 @@ import { TravauxService } from 'src/app/services/travaux.service';
   styleUrls: ['./add-travaux.component.css']
 })
 export class AddTravauxComponent implements OnInit {
+
+	//private notifier: NotifierService;
 	
 	travaux: Travaux = {
 		demande_debut: '',
@@ -36,7 +39,9 @@ export class AddTravauxComponent implements OnInit {
 
 	submitted = false;
 	
-	constructor(private travauxService: TravauxService, private gareService: GareService, private datepipe: DatePipe) { }
+	constructor(private travauxService: TravauxService, private gareService: GareService, private datepipe: DatePipe, notifier: NotifierService) { 
+		
+	 }
 
 	ngOnInit(): void {
 		this.gares = this.gareService.getAll();

@@ -24,6 +24,7 @@
     "@developer-partners/ngx-modal-dialog": "^1.0.5",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0-rc.2",
     "angular-datatables": "^16.0.0",
+    "angular-notifier": "^14.0.0",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
     "datatables.net": "^1.11.3",
