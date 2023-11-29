@@ -65,6 +65,7 @@
 							<div>
 								<label for="canton"><strong>Gare</strong></label>
 								<select required class="form-select" name="gare" (change)="onChange($event)">
+									<option value="{{ currentTravail.gare?.id }}">{{ currentTravail.gare?.libelle }}</option>
 									<option *ngFor="let gare of gares | async" value="{{ gare.id }}">{{ gare.libelle }}</option>
 								</select>
 								<div class="form-group">
