@@ -14,7 +14,7 @@
 	<div class="alert alert-primary text-center" role="alert">
 		Liste travaux
 	  </div>
-	  <div *ngIf="message" class="alert alert-success" role="alert">
+	  <div *ngIf="message" class="alert alert-success text-center" role="alert">
 			<strong>{{ message }}</strong>
 	  </div>
 	<table *ngIf="travaux" datatable [dtOptions]="dtOptions" class="table table-striped table-hover row-border">

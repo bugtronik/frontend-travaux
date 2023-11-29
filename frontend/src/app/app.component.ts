@@ -173,6 +173,7 @@ export class AppComponent {
 				console.log(res);
 				this.message = res.message ? res.message : 'Données mise à jour';
 				this.displayStyle = "none";
+				this.retrieveTravaux();
 			},
 			error: (e) => console.error(e)
 		});
