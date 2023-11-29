@@ -17,7 +17,7 @@ export class GareService {
   }
 
   get(id: any): Observable<Gare> {
-	return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get<Gare>(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {

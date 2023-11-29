@@ -64,8 +64,8 @@
 						<div class="submit-form">
 							<div>
 								<label for="canton"><strong>Gare</strong></label>
-								<select class="form-select" name="id_gare" [(ngModel)]="travail.gare">
-									<option *ngFor="let gare of gares | async">{{ gare.libelle }}</option>
+								<select required class="form-select" name="gare" (change)="onChange($event)">
+									<option *ngFor="let gare of gares | async" value="{{ gare.id }}">{{ gare.libelle }}</option>
 								</select>
 								<div class="form-group">
 									<label for="canton"><strong>Canton</strong></label>

@@ -36,9 +36,16 @@ export class AppComponent {
 		gare: new Gare
   }
 
+  @Input() currentGare: Gare = {
+	id: '',
+	libelle: ''
+  };
+
+
   travaux?: any;
   travail_unique?: any;
   currentTravaux: Travaux = {};
+  currentIdGare: any;
   currentIndex = -1;
 
   dtOptions: DataTables.Settings = {};
@@ -75,6 +82,12 @@ export class AppComponent {
 	if(!this.viewMode) {
 		this.message = '';
 	}
+  }
+
+  onChange(value: any) {
+	this.currentIdGare = value.target.value;
+	this.getGare(this.currentIdGare);
+	
   }
 
   openPopup(id: string) { 
@@ -120,6 +133,18 @@ export class AppComponent {
 		});
   }
 
+  getGare(id: string): void {
+	this.gareService.get(id)
+		.subscribe({
+			next: (data) => {
+				this.currentGare = data;
+				console.log(data);
+			},
+			error: (e) => console.error(e)
+		})
+  }
+
+
   updateTravaux(): void {
 	this.message = '';
 
@@ -137,8 +162,10 @@ export class AppComponent {
 		regime: this.currentTravail.regime,
 		etat: this.currentTravail.etat,
 		commentaire: this.currentTravail.commentaire,
-		gare: this.currentTravail.gare
+		gare: this.currentGare
 	}
+
+	console.log(this.currentGare)
 
 	this.travauxService.update(this.currentTravail.id, data_update)
 		.subscribe({
